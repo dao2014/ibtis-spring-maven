@@ -25,4 +25,10 @@ public class DataSourceContextHolder {
 	public static void setThreadDataSource(String dataSourceName) {
 		contextHolder.set(dataSourceName);
 	}
+	
+	//清除数据源
+    public static void clearDataSource() {
+    	contextHolder.remove();
+    }
+ 
 }

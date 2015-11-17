@@ -10,8 +10,6 @@ import com.alibaba.druid.pool.DruidDataSource;
 
 public class DynamicDataSource extends AbstractRoutingDataSource{
 	
-	String conntion="";
-	
 	@Override
 	protected Object determineCurrentLookupKey() {
 	return DataSourceContextHolder.getThreadDataSource();
@@ -26,10 +24,10 @@ public class DynamicDataSource extends AbstractRoutingDataSource{
     /**@author qilin**/  
     public void addDataSource(Object key,Object dataSource){  
     	Map<Object, Object> sours = new HashMap<Object,Object>();
-    	conntion = key+"";
     	sours.put(key, dataSource);
 //    	setDefaultTargetDataSource(SpringUtil.getBeanById("dataSource"));
         setTargetDataSources(sours);  
+        
         
     }
 }
